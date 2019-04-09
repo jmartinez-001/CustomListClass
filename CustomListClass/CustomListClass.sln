@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomListClass", "CustomListClass\CustomListClass.csproj", "{2FD1C350-F8F1-48E7-8E3A-1AF17710CA3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomListClassTest", "CustomListClassTest\CustomListClassTest.csproj", "{FD052215-EFFB-44CE-8417-1B4E753EDF22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FD1C350-F8F1-48E7-8E3A-1AF17710CA3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD1C350-F8F1-48E7-8E3A-1AF17710CA3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD1C350-F8F1-48E7-8E3A-1AF17710CA3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD1C350-F8F1-48E7-8E3A-1AF17710CA3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD052215-EFFB-44CE-8417-1B4E753EDF22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD052215-EFFB-44CE-8417-1B4E753EDF22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD052215-EFFB-44CE-8417-1B4E753EDF22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD052215-EFFB-44CE-8417-1B4E753EDF22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1900EC79-8D15-4C67-B5E1-E0F32AB9C2B4}
+	EndGlobalSection
+EndGlobal
