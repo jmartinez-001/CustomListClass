@@ -12,6 +12,9 @@ namespace CustomListClassTest
         {
             //Arrange
             CustomList<int> myList = new CustomList<int>();
+            // PrivateObject po = new PrivateObject(myList, "IncreaseCapacity");
+            
+
             int expected = 5;
             int actual;
 
@@ -79,7 +82,7 @@ namespace CustomListClassTest
             CustomList<int> myList = new CustomList<int>();
             int valueOne = 5;
             int valueTwo = 10;
-            
+
 
             //Act
             myList.Add(valueOne);
@@ -104,132 +107,182 @@ namespace CustomListClassTest
             myList.Add(valueOne);
             myList.Add(valueTwo);
             myList.Add(valueThree);
-            myList.Remove(valueOne);
-            actual = myList.count();
+            myList.Remove(10);
+            actual = myList.Count;
 
             //Assert
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Test_()
+        public void Remove_RemoveValue_RemoveOnlyFirstOccurance()
         {
             //Arrange
             CustomList<int> myList = new CustomList<int>();
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
 
-
-            //Act
-
+            //Act            
+            myList.Add(valueOne);
+            myList.Add(valueTwo);
+            myList.Add(valueThree);
+            myList.Add(valueTwo);
+            myList.Add(valueTwo);
+            myList.Remove(10);
 
             //Assert
+            Assert.AreEqual(10, myList[2]);
         }
         [TestMethod]
-        public void Test()
+        public void Remove_RemoveOnlyFirstOccurance_CountDecreasesByOne()
         {
             //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
+            int actual;
 
-
-            //Act
-
+            //Act     
+            
+            myList.Add(valueOne);
+            myList.Add(valueTwo);
+            myList.Add(valueThree);
+            myList.Add(valueTwo);
+            myList.Add(valueTwo);
+            myList.Remove(10);
+            actual = myList.Count;
 
             //Assert
-
+            Assert.AreEqual(4, actual);
         }
         [TestMethod]
-        public void Test()
+        public void Remove_RemoveValue_ReturnBoolTrue()
         {
             //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
+            bool actual;
 
 
             //Act
+            myList.Add(valueOne);
+            myList.Add(valueTwo);
+            myList.Add(valueThree);
+            actual = myList.Remove(10);
 
 
             //Assert
-
+            Assert.IsTrue(actual);
         }
         [TestMethod]
-        public void Test()
+        public void Remove_RemoveNonExistentValue_ReturnBoolFalse()
         {
             //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
+            bool actual;
 
 
             //Act
+            myList.Add(valueOne);
+            myList.Add(valueTwo);
+            myList.Add(valueThree);
+            actual = myList.Remove(20);
 
 
-            //Assert
-
-        }
-        [TestMethod]
-        public void Test()
-        {
-            //Arrange
-
-
-            //Act
-
-
-            //Assert
+            //Assert 
+            Assert.IsFalse(actual);
 
         }
-        [TestMethod]
-        public void Test()
-        {
-            //Arrange
+        //[TestMethod]
+        //public void Test()
+        //{
+        //    //Arrange
 
 
-            //Act
+        //    //Act
 
 
-            //Assert
+        //    //Assert
 
-        }
-        [TestMethod]
-        public void Test()
-        {
-            //Arrange
-
-
-            //Act
+        //}
+        //[TestMethod]
+        //public void Test()
+        //{
+        //    //Arrange
 
 
-            //Assert
-
-        }
-        [TestMethod]
-        public void Test()
-        {
-            //Arrange
+        //    //Act
 
 
-            //Act
+        //    //Assert
+
+        //}
+        //[TestMethod]
+        //public void Test()
+        //{
+        //    //Arrange
 
 
-            //Assert
-
-        }
-        [TestMethod]
-        public void Test()
-        {
-            //Arrange
+        //    //Act
 
 
-            //Act
+        //    //Assert
+
+        //}
+        //[TestMethod]
+        //public void Test()
+        //{
+        //    //Arrange
 
 
-            //Assert
-
-        }
-        [TestMethod]
-        public void Test()
-        {
-            //Arrange
+        //    //Act
 
 
-            //Act
+        //    //Assert
+
+        //}
+        //[TestMethod]
+        //public void Test()
+        //{
+        //    //Arrange
 
 
-            //Assert
+        //    //Act
 
-        }
+
+        //    //Assert
+
+        //}
+        //[TestMethod]
+        //public void Test()
+        //{
+        //    //Arrange
+
+
+        //    //Act
+
+
+        //    //Assert
+
+        //}
+        //[TestMethod]
+        //public void Test()
+        //{
+        //    //Arrange
+
+
+        //    //Act
+
+
+        //    //Assert
+
+        //}
 
     }
 }
