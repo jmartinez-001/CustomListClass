@@ -10,6 +10,7 @@ namespace CustomListClass
     {
         static void Main(string[] args)
         {
+            
             CustomList<int> List = new CustomList<int>();
             List.Add(5);
             List.Add(10);
@@ -35,9 +36,9 @@ namespace CustomListClass
             List.Add(20);
             List.Add(25);
             List.Add(30);
-            List.Remove(20);
+            List.ToString();
 
-
+            
 
 
         }

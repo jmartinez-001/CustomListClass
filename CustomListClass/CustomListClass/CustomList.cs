@@ -17,7 +17,6 @@ namespace CustomListClass
         }
         public int Capacity;
         private T[] items;
-        //public int startingListCapacity = 4;
 
         //constructor
         public CustomList()
@@ -25,7 +24,6 @@ namespace CustomListClass
             int startingListCapacity = 4;
             Capacity = startingListCapacity;
             items = new T[startingListCapacity];
-            //Capacity = items.Length;
             count = 0;
 
         }
@@ -35,32 +33,10 @@ namespace CustomListClass
          
             Capacity = startingListCapacity;
             items = new T[startingListCapacity];
-            //Capacity = items.Length;
             count = 0;
 
         }
-
         //member methods
-        //public void Add(T value)
-        //{
-        //    for (var i = 0; i < items.Length; i++)
-        //    {
-        //        if (items[i] != null)
-        //        {
-        //            i++;
-
-        //        }
-        //        else
-        //        {
-        //            items[i] = value;
-
-        //        }
-
-
-        //    }
-
-
-        //}
         public void Add(T value)
         {
             CheckCapacity();
@@ -94,7 +70,6 @@ namespace CustomListClass
             }
             return tempArray;
 
-
         }
         public T this[int i]
         {
@@ -105,9 +80,7 @@ namespace CustomListClass
         {
             T[] tempArray = new T[Capacity];
             var j = 0;
-            bool found = false;
-
-            
+            bool found = false;            
 
             for (var i = 0; i < Capacity; i++)
             {
@@ -115,7 +88,6 @@ namespace CustomListClass
                 {
                     tempArray[j] = items[i];
                     j++;
-                    //i++;
 
                 }
                 else
@@ -123,24 +95,26 @@ namespace CustomListClass
 
                 found = true;
 
-
                 }
                 
-
             }
             items = tempArray;
             count = count - 1;
-            if (found)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return found;
 
         }
+        public override string ToString()
+        {
+            string message = "Contents : ";
+            for (var i = 0; i < count; i++)
+            {
+                message += items[i] + " ";
 
+            }
+
+            return message;
+            
+        }
 
     }
 }

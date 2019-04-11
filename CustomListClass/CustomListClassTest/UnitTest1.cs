@@ -199,30 +199,59 @@ namespace CustomListClassTest
             Assert.IsFalse(actual);
 
         }
-        //[TestMethod]
-        //public void Test()
-        //{
-        //    //Arrange
+        [TestMethod]
+        public void ToString_TakeListOfInt_ReturnStringOfContents()
+        {
+            //Arrange
+            CustomList<int> myList = new CustomList<int>();
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
+            string actual;
+            string expected;
+
+            //Act
+            myList.Add(valueOne);
+            myList.Add(valueTwo);
+            myList.Add(valueThree);
+            expected = "Contents : 5 10 15 ";
+            actual = myList.ToString();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void PlusOperator_ListOnePlusListTwo_ReturnNewListWithContentsOfBoth()
+        {
+            //Arrange
+            CustomList<int> myList1 = new CustomList<int>();
+            CustomList<int> myList2 = new CustomList<int>();
+            CustomList<int> expected = new CustomList<int>();
+            CustomList<int> actual;
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
 
 
-        //    //Act
+            //Act
+            expected.Add(5);
+            expected.Add(10);
+            expected.Add(15);
+            expected.Add(15);
+            expected.Add(10);
+            expected.Add(5);
+            myList1.Add(valueOne);
+            myList1.Add(valueTwo);
+            myList1.Add(valueThree);
+            myList2.Add(valueThree);
+            myList2.Add(valueTwo);
+            myList2.Add(valueOne);
+            actual = (myList1 + myList2);
 
+            //Assert
+            Assert.AreEqual(expected, actual);
 
-        //    //Assert
-
-        //}
-        //[TestMethod]
-        //public void Test()
-        //{
-        //    //Arrange
-
-
-        //    //Act
-
-
-        //    //Assert
-
-        //}
+        }
         //[TestMethod]
         //public void Test()
         //{
