@@ -417,6 +417,36 @@ namespace CustomListClassTest
             actual = myList3.ToString();
 
 
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void MinusOperator_RemoveSecondValueFromFirstList_ReturnNewListThirdValueNowSecond()
+        {
+            //Arrange
+            CustomList<int> myList1 = new CustomList<int>();
+            CustomList<int> myList2 = new CustomList<int>();
+            CustomList<int> myList3;
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
+            int valueFour = 20;
+            int valueFive = 25;
+            string expected;
+            string actual;
+
+
+            //Act
+            myList1.Add(valueOne);
+            myList1.Add(valueTwo);
+            myList1.Add(valueThree);
+            myList2.Add(valueFour);
+            myList2.Add(valueTwo);
+            myList2.Add(valueFive);
+            expected = "Contents : 5 15 ";
+            myList3 = myList1 - myList2;
+            actual = myList3.ToString();
 
 
             //Assert
@@ -424,12 +454,45 @@ namespace CustomListClassTest
 
         }
         [TestMethod]
-        public void MinusOperator_ListOneMinusListTwo_ReturnNewListWithDifferenceOfBoth()
+        public void MinusOperator_RemoveFromFirstListAddValueRemoveFirstListValuesFromNewList_ReturnNewListMinusListOneValues()
         {
             //Arrange
             CustomList<int> myList1 = new CustomList<int>();
             CustomList<int> myList2 = new CustomList<int>();
             CustomList<int> myList3;
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
+            int valueFour = 20;
+            int valueFive = 25;
+            string expected;
+            string actual;
+
+
+            //Act
+            myList1.Add(valueOne);
+            myList1.Add(valueTwo);
+            myList1.Add(valueThree);
+            myList2.Add(valueFour);
+            myList2.Add(valueTwo);
+            myList2.Add(valueFive);            
+            myList3 = myList1 - myList2;
+            myList3.Add(30);
+            myList3 = myList3 - myList1;
+            actual = myList3.ToString();
+            expected = "Contents : 30 ";
+
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void MinusOperator_ListOneMinusListOne_ReturnEmptyNewList()
+        {
+            //Arrange
+            CustomList<int> myList1 = new CustomList<int>();
+            CustomList<int> myList2;
             int valueOne = 5;
             int valueTwo = 10;
             int valueThree = 15;
@@ -442,20 +505,16 @@ namespace CustomListClassTest
             myList1.Add(valueOne);
             myList1.Add(valueTwo);
             myList1.Add(valueThree);
-            myList2.Add(valueFour);
-            myList2.Add(valueTwo);
-            myList2.Add(valueOne);
-            expected = "Contents : 15 20 ";
-            myList3 = myList1 - myList2;
-            actual = myList3.ToString();
-
-
+            expected = "Contents : ";
+            myList2 = myList1 - myList1;
+            actual = myList2.ToString();
 
 
             //Assert
             Assert.AreEqual(expected, actual);
 
         }
+
 
 
     }
