@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListClass
 {
-    public class CustomList<T> where T : IComparable
+    public class CustomList<T> : IEnumerable<T> //IComparable<T> //ICollection, IEquatable<T>
     {
         //member variables
         private int count;
@@ -27,7 +27,6 @@ namespace CustomListClass
             count = 0;
 
         }
-
         public CustomList(int startingListCapacity)
         {
          
@@ -35,6 +34,10 @@ namespace CustomListClass
             items = new T[startingListCapacity];
             count = 0;
 
+        }
+        public CustomList(IEnumerable<T> collection)
+        {
+            
         }
         //member methods
         public void Add(T value)
@@ -115,6 +118,72 @@ namespace CustomListClass
             return message;
             
         }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return ((IEnumerable<T>)items).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable<T>)items).GetEnumerator();
+        }
+
+        //public int CompareTo(CustomList<T> x, CustomList<T> y)
+        //{
+        //    var j = 0;
+
+        //    for (var i = 0; i < Capacity; i++)
+        //    {
+        //        if (x > y)
+        //        {
+        //             = items[i];
+        //            j++;
+
+        //        }
+        //        else
+        //        {
+
+        //            found = true;
+
+        //        }
+
+        //    }
+
+        //}
+
+        //public static bool Equals(T a, T b)
+        //{
+
+        //    if (a.Equals(b))
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        public static CustomList<T> operator +(CustomList<T> a, CustomList<T> b)
+        {
+            //return new CustomList<T>(a + b);
+            CustomList<T> temp = new CustomList<T>();
+            for (var i = 0; i < a.count; i++)
+            {
+                temp.Add(a[i]);
+            }
+            for (var i = 0; i < b.count; i++)
+            {
+                temp.Add(b[i]);
+            }
+            return temp;
+            
+        }
+        //public static CustomList<T> operator -(CustomList<T> a, CustomList<T> b)
+        //{
+
+        //}
 
     }
 }

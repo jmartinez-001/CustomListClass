@@ -221,97 +221,242 @@ namespace CustomListClassTest
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
+        public void ToString_TakeListOfDouble_ReturnStringOfContents()
+        {
+            //Arrange
+            CustomList<double> myList = new CustomList<double>();
+            double valueOne = 5;
+            double valueTwo = 10;
+            double valueThree = 15;
+            string actual;
+            string expected;
+
+            //Act
+            myList.Add(valueOne);
+            myList.Add(valueTwo);
+            myList.Add(valueThree);
+            expected = "Contents : 5 10 15 ";
+            actual = myList.ToString();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ToString_TakeListOfBool_ReturnStringOfContents()
+        {
+            //Arrange
+            CustomList<bool> myList = new CustomList<bool>();
+            bool valueOne = true;
+            bool valueTwo = false;
+            bool valueThree = true;
+            string actual;
+            string expected;
+
+            //Act
+            myList.Add(valueOne);
+            myList.Add(valueTwo);
+            myList.Add(valueThree);
+            expected = "Contents : True False True ";
+            actual = myList.ToString();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ToString_TakeListOfFloat_ReturnStringOfContents()
+        {
+            //Arrange
+            CustomList<float> myList = new CustomList<float>();
+            float valueOne = 5000;
+            float valueTwo = 1000;
+            float valueThree = 1500;
+            string actual;
+            string expected;
+
+            //Act
+            myList.Add(valueOne);
+            myList.Add(valueTwo);
+            myList.Add(valueThree);
+            expected = "Contents : 5000 1000 1500 ";
+            actual = myList.ToString();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
         public void PlusOperator_ListOnePlusListTwo_ReturnNewListWithContentsOfBoth()
         {
             //Arrange
             CustomList<int> myList1 = new CustomList<int>();
             CustomList<int> myList2 = new CustomList<int>();
-            CustomList<int> expected = new CustomList<int>();
-            CustomList<int> actual;
+            CustomList<int> myList3;
             int valueOne = 5;
             int valueTwo = 10;
             int valueThree = 15;
+            string expected;
+            string actual;
 
 
             //Act
-            expected.Add(5);
-            expected.Add(10);
-            expected.Add(15);
-            expected.Add(15);
-            expected.Add(10);
-            expected.Add(5);
             myList1.Add(valueOne);
             myList1.Add(valueTwo);
             myList1.Add(valueThree);
             myList2.Add(valueThree);
             myList2.Add(valueTwo);
             myList2.Add(valueOne);
-            actual = (myList1 + myList2);
+            expected = "Contents : 5 10 15 15 10 5 ";
+            myList3 = myList1 + myList2;
+            actual = myList3.ToString();
+            
+
+
 
             //Assert
             Assert.AreEqual(expected, actual);
 
         }
-        //[TestMethod]
-        //public void Test()
-        //{
-        //    //Arrange
+        [TestMethod]
+        public void PlusOperator_DoubleDigitIntListOnePlusDoubleDigitIntListTwo_ReturnNewTripleDigitIntListWithContentsOfBoth()
+        {
+            //Arrange
+            CustomList<int> myList1 = new CustomList<int>();
+            CustomList<int> myList2 = new CustomList<int>();
+            CustomList<int> myList3 = new CustomList<int>();
+            CustomList<int> myList4;
+            string actual;
+            string expected;            
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
 
 
-        //    //Act
+            CustomList<CustomList<int>> list1 = new CustomList<CustomList<int>>();
+
+            //Act
+            for (var i = 0; i < 50; i++)
+            {
+                myList3.Add(5);
+            }
+            for (var i = 0; i < 50; i++)
+            {
+                myList3.Add(10);
+            }
+            for (var i = 0; i < 50; i++)
+            {
+                myList1.Add(5);
+            }
+            for (var i = 0; i < 50; i++)
+            {
+                myList2.Add(10);
+            }
+            myList4 = myList1 + myList2;
+            actual = myList4.ToString();
+            expected = "Contents : 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 ";
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void MinusOperator_ListOneMinusListTwo_ReturnNewListWithDifferenceOfBoth()
+        {
+            //Arrange
+            CustomList<int> myList1 = new CustomList<int>();
+            CustomList<int> myList2 = new CustomList<int>();
+            CustomList<int> myList3;
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
+            int valueFour = 20;
+            string expected;
+            string actual;
 
 
-        //    //Assert
-
-        //}
-        //[TestMethod]
-        //public void Test()
-        //{
-        //    //Arrange
-
-
-        //    //Act
-
-
-        //    //Assert
-
-        //}
-        //[TestMethod]
-        //public void Test()
-        //{
-        //    //Arrange
+            //Act
+            myList1.Add(valueOne);
+            myList1.Add(valueTwo);
+            myList1.Add(valueThree);
+            myList2.Add(valueFour);
+            myList2.Add(valueTwo);
+            myList2.Add(valueOne);
+            expected = "Contents : 15 20 ";
+            myList3 = myList1 - myList2;
+            actual = myList3.ToString();
 
 
-        //    //Act
 
 
-        //    //Assert
+            //Assert
+            Assert.AreEqual(expected, actual);
 
-        //}
-        //[TestMethod]
-        //public void Test()
-        //{
-        //    //Arrange
-
-
-        //    //Act
-
-
-        //    //Assert
-
-        //}
-        //[TestMethod]
-        //public void Test()
-        //{
-        //    //Arrange
+        }
+        [TestMethod]
+        public void MinusOperator_ListOneMinusListTwo_ReturnNewListWithDifferenceOfBoth()
+        {
+            //Arrange
+            CustomList<int> myList1 = new CustomList<int>();
+            CustomList<int> myList2 = new CustomList<int>();
+            CustomList<int> myList3;
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
+            int valueFour = 20;
+            string expected;
+            string actual;
 
 
-        //    //Act
+            //Act
+            myList1.Add(valueOne);
+            myList1.Add(valueTwo);
+            myList1.Add(valueThree);
+            myList2.Add(valueFour);
+            myList2.Add(valueTwo);
+            myList2.Add(valueOne);
+            expected = "Contents : 15 20 ";
+            myList3 = myList1 - myList2;
+            actual = myList3.ToString();
 
 
-        //    //Assert
 
-        //}
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void MinusOperator_ListOneMinusListTwo_ReturnNewListWithDifferenceOfBoth()
+        {
+            //Arrange
+            CustomList<int> myList1 = new CustomList<int>();
+            CustomList<int> myList2 = new CustomList<int>();
+            CustomList<int> myList3;
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
+            int valueFour = 20;
+            string expected;
+            string actual;
+
+
+            //Act
+            myList1.Add(valueOne);
+            myList1.Add(valueTwo);
+            myList1.Add(valueThree);
+            myList2.Add(valueFour);
+            myList2.Add(valueTwo);
+            myList2.Add(valueOne);
+            expected = "Contents : 15 20 ";
+            myList3 = myList1 - myList2;
+            actual = myList3.ToString();
+
+
+
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
 
     }
 }

@@ -10,38 +10,28 @@ namespace CustomListClass
     {
         static void Main(string[] args)
         {
-            
-            CustomList<int> List = new CustomList<int>();
-            List.Add(5);
-            List.Add(10);
-            List.Add(15);
-            List.Add(20);
-            List.Add(25);
-            List.Add(30);
-            List.Add(5);
-            List.Add(10);
-            List.Add(15);
-            List.Add(20);
-            List.Add(25);
-            List.Add(30);
-            List.Add(5);
-            List.Add(10);
-            List.Add(15);
-            List.Add(20);
-            List.Add(25);
-            List.Add(30);
-            List.Add(5);
-            List.Add(10);
-            List.Add(15);
-            List.Add(20);
-            List.Add(25);
-            List.Add(30);
-            List.ToString();
 
-            
+            //List<int> thing = new List<int>();
+            //List<int> otherthing = new List<int>();
+            //List<int> otherotherthing = thing + otherthing;
+
+            CustomList<int> List1 = new CustomList<int>();
+            CustomList<int> List2 = new CustomList<int>();
+            for (var i = 0; i < 10; i ++)
+            {
+                List1.Add(5);
+            }
+            for (var i = 0; i < 10; i++)
+            {
+                List2.Add(10);
+            }
+
+            CustomList<int> List3 = List1 + List2;
+            Console.WriteLine(List3.ToString());
+
 
 
         }
-        
+
     }
 }
