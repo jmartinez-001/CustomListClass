@@ -358,7 +358,7 @@ namespace CustomListClassTest
 
         }
         [TestMethod]
-        public void MinusOperator_ListOneMinusListTwo_ReturnNewListWithDifferenceOfBoth()
+        public void MinusOperator_ListOneMinusListTwo_ReturnNewListWithDifferenceOfOneMinusTwo()
         {
             //Arrange
             CustomList<int> myList1 = new CustomList<int>();
@@ -379,7 +379,7 @@ namespace CustomListClassTest
             myList2.Add(valueFour);
             myList2.Add(valueTwo);
             myList2.Add(valueOne);
-            expected = "Contents : 15 20 ";
+            expected = "Contents : 15 ";
             myList3 = myList1 - myList2;
             actual = myList3.ToString();
 
@@ -391,7 +391,7 @@ namespace CustomListClassTest
 
         }
         [TestMethod]
-        public void MinusOperator_ListOneMinusListTwo_ReturnNewListWithDifferenceOfBoth()
+        public void MinusOperator_ListTwoMinusListOne_ReturnNewListWithDifferenceOfTwoMinusOne()
         {
             //Arrange
             CustomList<int> myList1 = new CustomList<int>();
@@ -412,8 +412,8 @@ namespace CustomListClassTest
             myList2.Add(valueFour);
             myList2.Add(valueTwo);
             myList2.Add(valueOne);
-            expected = "Contents : 15 20 ";
-            myList3 = myList1 - myList2;
+            expected = "Contents : 20 ";
+            myList3 = myList2 - myList1;
             actual = myList3.ToString();
 
 
@@ -508,6 +508,68 @@ namespace CustomListClassTest
             expected = "Contents : ";
             myList2 = myList1 - myList1;
             actual = myList2.ToString();
+
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void Zip_JoinListOneWithListTwoLikeAZipper_ReturnListOneWithContentsOfBothInAlternatingOrder()
+        {
+            //Arrange
+            CustomList<int> myList1 = new CustomList<int>();
+            CustomList<int> myList2 = new CustomList<int>();
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
+            int valueFour = 20;
+            int valueFive = 25;
+            string expected;
+            string actual;
+
+
+            //Act
+            myList1.Add(valueOne);
+            myList1.Add(valueTwo);
+            myList1.Add(valueThree);
+            myList2.Add(valueFour);
+            myList2.Add(valueFive);
+            myList2.Add(valueOne);
+            myList1.Zip(myList2);
+            actual = myList1.ToString();
+            expected = "Contents : 5 20 10 25 15 5 ";
+
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void Zip_JoinShorterListWithLongerList_ReturnNewListWithContentsOfBothInAlternatingOrder()
+        {
+            //Arrange
+            CustomList<int> myList1 = new CustomList<int>();
+            CustomList<int> myList2 = new CustomList<int>();
+            int valueOne = 5;
+            int valueTwo = 10;
+            int valueThree = 15;
+            int valueFour = 20;
+            int valueFive = 25;
+            string expected;
+            string actual;
+
+
+            //Act
+            myList1.Add(valueOne);
+            myList1.Add(valueTwo);
+            myList2.Add(valueTwo);
+            myList2.Add(valueFour);
+            myList2.Add(valueFive);
+            myList2.Add(valueOne);
+            myList1.Zip(myList2);
+            actual = myList1.ToString();
+            expected = "Contents : 5 10 10 20 25 5 ";
 
 
             //Assert

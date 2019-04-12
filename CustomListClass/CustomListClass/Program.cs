@@ -17,16 +17,18 @@ namespace CustomListClass
 
             CustomList<int> List1 = new CustomList<int>();
             CustomList<int> List2 = new CustomList<int>();
-            for (var i = 0; i < 10; i ++)
-            {
-                List1.Add(5);
-            }
-            for (var i = 0; i < 10; i++)
-            {
-                List2.Add(10);
-            }
+            CustomList<int> List3 = new CustomList<int>();
+            List1.Add(5);
+            List1.Add(10);
+            List1.Add(20);
+            List2.Add(20);
+            List2.Add(25);
+            List2.Add(10);
+            List2.Add(10);
+            List2.Add(10);
+            List2.Add(10);
 
-            CustomList<int> List3 = List1 + List2;
+            List1.Zip(List2);
             Console.WriteLine(List3.ToString());
 
 
